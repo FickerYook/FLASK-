@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          table {
+               width: 100%;
+               border-collapse: collapse;
+               margin-top: 20px;
+          }
+
+          table,
+          th,
+          td {
+               border: 1px solid #ddd;
+          }
+
+          th,
+          td {
+               padding: 10px;
+               text-align: left;
+          }
+     </style>
+</head>
+
+<body>
+     <h1>table</h1>
+     <a href="{{url_for('add_products')}}">  ADD</a>
+     <table>
+          <tr>
+
+               <th>ID</th>
+               <th>NAME</th>
+               <th>PRICE</th>
+               <th>DES</th>
+               <th>IMG</th>
+
+          </tr>
+          {% for p in product %}
+          <tr>
+
+               <td>{{p[0]}}</td>
+               <td>{{p[1]}}</td>
+               <td>{{p[2]}}</td>
+               <td>{{p[3]}}</td>
+               <td> <a href="{{ url_for('product_details', id=p[0]) }}" class="buy-button">View Details</a></td>
+               <td>
+                    {% if p[4] %}
+                    <img src="{{ url_for('static', filename='images/' + p[4]) }}" alt="" width="50" height="50">
+                    {% else %}
+                    NO image
+                    {% endif %}
+
+               </td>
+               <td><a href="{{ url_for('edit_product', id=p[0]) }}">แก้ไข้</a></td>
+
+               <td><a href="{{ url_for('delete_product', id=p [0]) }}">Delete</a></td>
+
+
+          </tr>
+          {% endfor %}
+
+     </table>
+     <div><a href="{{url_for('home')}}">หน้าแรก</a></div>
+     
+</body>
+
+</html>

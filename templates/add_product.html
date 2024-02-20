@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=h, initial-scale=1.0">
+     <title>Document</title>
+</head>
+<body>
+     <h1>ADD PRODUCTS</h1>
+     <form action="{{url_for('add_products')}}" method="POST" enctype="multipart/form-data">
+     <label for="name">Name</label>
+     <input type="text" name="name" id="name">
+     <label for="price">Price</label>
+     <input type="text" name="price" id="price">
+
+     <label for="description">Des</label>
+     <input type="text" name="description" id="description">
+     <label for="image">image</label>
+     <input type="file" name="image" id="image">
+     <button type="submit">OK</button>
+</form>
+</body>
+</html>

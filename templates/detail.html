@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+</head>
+<body>
+
+  <h1>Product Details</h1>
+
+  {% if product %}
+    <div>
+      <h2>id   {{ product[0] }}</h2>
+      <p>name: {{ product[1] }}</p>
+      <p>price: {{ product[2] }}</p>
+      <p>Description: {{ product[3] }}</p>
+
+
+        <img src="{{ url_for('static', filename='images/' + product[4]) }}" alt="{{ product['name'] }} Image">
+    
+
+    </div>
+  {% endif %}
+
+</body>
+</html>
